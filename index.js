@@ -37,7 +37,7 @@ const limiter = rateLimit({
     max: process.env.MAX_RATE_LIMIT,
     windowMs: process.env.MAX_RATE_LIMIT_TIME * 60 * 1000, // unit: minutes
     message:
-      'Too many requests from this IP, please try again after 30 minutes !',
+      `Too many requests from this IP, please try again after ${process.env.MAX_RATE_LIMIT_TIME} minutes !`,
   });
   
 server.use('/api', limiter);
